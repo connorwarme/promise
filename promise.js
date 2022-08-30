@@ -41,4 +41,15 @@ delay(100)
 })
 .then(() => {
     console.log("step 4 after 3000ms");
+});
+
+// learn how to use APIs
+const main = document.querySelector('div.main');
+const picture = document.createElement('img');
+fetch('https://api.giphy.com/v1/gifs/translate?api_key=KItDMzaj55RdWIHhN5eJNf6eoNvcj3eE&s=cats', {
+    mode: "cors"
 })
+  .then((response) => {
+    console.log(response.json());
+  });
+main.appendChild(picture);
