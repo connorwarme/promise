@@ -22,3 +22,23 @@ add(fetchX(1), fetchY('X'))
         console.error(err);
     }
 );
+
+const delay = (time) => new Promise((resolve, reject) => {
+    setTimeout(resolve, time);
+});
+setTimeout(() => {
+    console.log("step 0");
+}, 0);
+console.log('step 1');
+delay(100)
+.then(() => {
+    console.log("step 2 after 100ms");
+    return delay(400);
+})
+.then(() => {
+    console.log("step 3 after 400ms");
+    return delay(3000);
+})
+.then(() => {
+    console.log("step 4 after 3000ms");
+})
