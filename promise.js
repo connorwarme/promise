@@ -13,5 +13,12 @@ const fetchY = (value) => {
     console.log(value);
     return Promise.resolve(value);
 }
-add(fetchX(1), fetchY(2))
-.then((sum) => console.log(sum));
+add(fetchX(1), fetchY('X'))
+.then(
+    function(sum) {
+        console.log(sum);
+    },
+    function(err) {
+        console.error(err);
+    }
+);
