@@ -63,8 +63,9 @@ const refresh = document.createElement('button');
 refresh.textContent = "Refresh";
 main.appendChild(refresh);
 
+let currentValue = 'cats';
 const kitties = () => {
-    fetch('https://api.giphy.com/v1/gifs/translate?api_key=KItDMzaj55RdWIHhN5eJNf6eoNvcj3eE&s=cats', {
+    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=KItDMzaj55RdWIHhN5eJNf6eoNvcj3eE&s=${currentValue}`, {
     mode: "cors"
 })
   .then((response) => response.json())
@@ -89,6 +90,7 @@ searchContainer.appendChild(search);
 
 const getGIF = () => {
     const searchVal = text.value;
+    currentValue = searchVal;
     const url = `https://api.giphy.com/v1/gifs/translate?api_key=KItDMzaj55RdWIHhN5eJNf6eoNvcj3eE&s=${searchVal}`
     fetch(url, {
         mode: "cors"
