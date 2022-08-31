@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    place-items: center;
+}
+.picContainer {
+    min-height: 500px;
+    min-width: 500px;
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main > button {
+    grid-area: 2 / 2 / 3 / 3;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
