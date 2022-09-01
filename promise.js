@@ -88,22 +88,18 @@ search.textContent = "Search";
 searchContainer.appendChild(text);
 searchContainer.appendChild(search);
 
-const getGIF = () => {
+const getGIF = async () => {
     const searchVal = text.value;
     currentValue = searchVal;
     const url = `https://api.giphy.com/v1/gifs/translate?api_key=KItDMzaj55RdWIHhN5eJNf6eoNvcj3eE&s=${searchVal}`
-    fetch(url, {
-        mode: "cors"
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response.data.images.original.url);
-        picture.src = response.data.images.original.url;
-      })
-      .catch((err) => {
-        console.log(err);
-        alert('Unable to find any GIFs. Try a different search!');
-      })
+    const response = await fetch(url, {mode: "cors"});
+    const urldata = await response.json();
+    console.log(urldata.data.images.original.url);
+    picture.src = urldata.data.images.original.url;
+    //   .catch((err) => {
+    //     console.log(err);
+    //     alert('Unable to find any GIFs. Try a different search!');
+    //   })
     }
 search.addEventListener('click', () => {
     console.log(text.value);
